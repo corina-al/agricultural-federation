@@ -12,7 +12,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
-public class MemberIT {
+public class MemberDtoIT {
     final ApiClient apiClient = new ApiClient();
 
     @Test

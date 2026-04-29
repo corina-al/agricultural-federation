@@ -1,0 +1,16 @@
+package edu.hei.school.agricultural.controller.dto;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import edu.hei.school.agricultural.api.model.BankAccount;
+
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = CashAccount.class, name = "CASH"),
+        @JsonSubTypes.Type(value = MobileBankingAccount.class, name = "MOBILE_BANKING"),
+        @JsonSubTypes.Type(value = BankAccount.class, name = "BANK")
+})
+@JsonIgnoreProperties(ignoreUnknown = true)
+public interface FinancialAccount {
+}
