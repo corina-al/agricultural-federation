@@ -3,7 +3,10 @@ package edu.hei.school.agricultural.entity;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+
+import static edu.hei.school.agricultural.entity.MemberOccupation.JUNIOR;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -26,10 +29,30 @@ public class Member {
     private Boolean registrationFeePaid;
     private Boolean membershipDuesPaid;
 
+    public boolean refereesAreEligible() {
+        if (referees == null || referees.isEmpty()) {
+            return false;
+        }
+        var memberRefereesInsideActualCollectivityNotJuniorCount = referees.stream().filter(member -> member.getCollectivities().stream()
+                        .anyMatch(collectivity -> collectivities.contains(collectivity) && !JUNIOR.equals(member.getOccupation())))
+                .count();
+        return memberRefereesInsideActualCollectivityNotJuniorCount >= 2;
+    }
+
     public List<Collectivity> addCollectivity(Collectivity collectivity) {
         collectivities.add(collectivity);
         collectivity.getMembers().add(this);
         return collectivities;
+    }
+
+    public List<Member> addReferees(List<Member> refereeMembers) {
+        if (referees == null) {
+            referees = new ArrayList<>();
+        }
+
+        referees.addAll(refereeMembers);
+
+        return referees;
     }
 
 }

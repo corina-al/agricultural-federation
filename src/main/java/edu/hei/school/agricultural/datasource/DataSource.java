@@ -13,9 +13,9 @@ public class DataSource {
     @Bean
     public Connection getConnection() {
         try {
-            String jdbcURl = System.getenv("JDBC_URl"); //
-            String user = System.getenv("USER"); //mini_dish_db_manager
-            String password = System.getenv("PASSWORD"); //123456
+            String jdbcURl = "jdbc:postgresql://localhost:5432/agricultural_federation_api";
+            String user = "postgres";
+            String password = "postgres";
             return DriverManager.getConnection(jdbcURl, user, password);
         } catch (SQLException e) {
             throw new RuntimeException(e);
