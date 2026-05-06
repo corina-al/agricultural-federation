@@ -11,6 +11,7 @@ import edu.hei.school.agricultural.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -27,8 +28,12 @@ public class MemberDtoMapper {
         }
 
         var refereeMembers = createMemberDto.getReferees().stream()
-                .map(refereeId -> memberRepository.findById(refereeId).orElseThrow(
-                        () -> new NotFoundException("Member.id=" + refereeId + "not found")))
+                .map(refereeId -> {
+                    var memberReferee = memberRepository.findById(refereeId).orElseThrow(
+                            () -> new NotFoundException("Member.id=" + refereeId + "not found"));
+                    memberReferee.addCollectivity(optionalCollectivity.get());
+                    return memberReferee;
+                })
                 .toList();
 
         var member = Member.builder()
@@ -36,6 +41,7 @@ public class MemberDtoMapper {
                 .lastName(createMemberDto.getLastName())
                 .birthDate(createMemberDto.getBirthDate())
                 .gender(createMemberDto.getGender() == null ? null : Gender.valueOf(createMemberDto.getGender().name()))
+                .occupation(createMemberDto.getOccupation() == null ? null : edu.hei.school.agricultural.entity.MemberOccupation.valueOf(createMemberDto.getOccupation().name()))
                 .address(createMemberDto.getAddress())
                 .profession(createMemberDto.getProfession())
                 .phoneNumber(createMemberDto.getPhoneNumber())
@@ -62,9 +68,11 @@ public class MemberDtoMapper {
                 .address(member.getAddress())
                 .profession(member.getProfession())
                 .phoneNumber(member.getPhoneNumber())
+                .profession(member.getProfession())
                 .email(member.getEmail())
+                .gender(member.getGender() == null ? null : edu.hei.school.agricultural.controller.dto.Gender.valueOf(member.getGender().name()))
                 .occupation(member.getOccupation() == null ? null : MemberOccupation.valueOf(member.getOccupation().name()))
-                .referees(member.getReferees().stream()
+                .referees(member.getReferees() == null ? List.of() : member.getReferees().stream()
                         .map(this::mapToDto)
                         .toList())
                 .build();

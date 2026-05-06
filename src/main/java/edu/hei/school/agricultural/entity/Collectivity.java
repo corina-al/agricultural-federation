@@ -14,6 +14,7 @@ public class Collectivity {
     private String name;
     private Integer number;
     private String location;
+    private String specialization;
     private CollectivityStructure collectivityStructure;
     private List<Member> members;
     private Boolean federationApproval;

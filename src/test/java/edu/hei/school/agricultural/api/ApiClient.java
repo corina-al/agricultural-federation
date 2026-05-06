@@ -6,7 +6,7 @@ import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 
 public class ApiClient {
-    private static final String BASE_URL = "http://192.168.0.42:8080";
+    private static final String BASE_URL = "http://localhost:8080";
     private final RestTemplate restTemplate;
     private final String baseUrl;
 

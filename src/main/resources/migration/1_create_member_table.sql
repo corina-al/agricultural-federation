@@ -23,6 +23,8 @@ create table if not exists "member"
     last_name             varchar,
     birth_date            date,
     gender                gender,
+    address               varchar,
+    profession            varchar,
     phone_number          varchar,
     email                 varchar,
     occupation            member_occupation,

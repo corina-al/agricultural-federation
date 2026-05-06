@@ -27,7 +27,7 @@ public class CollectivityMapper {
                         .secretary(resultSet.getString("secretary_id") == null ? null : memberRepository.findById(resultSet.getString("secretary_id")).orElse(null))
                         .build())
                 .build();
-        collectivity.addMembers(memberRepository.findAllByIdCollectivity(collectivity.getId()));
+        collectivity.addMembers(memberRepository.findAllByCollectivity(collectivity));
         return collectivity;
     }
 }

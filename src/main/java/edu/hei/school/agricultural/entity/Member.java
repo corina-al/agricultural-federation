@@ -33,15 +33,19 @@ public class Member {
         if (referees == null || referees.isEmpty()) {
             return false;
         }
-        var memberRefereesInsideActualCollectivityNotJuniorCount = referees.stream().filter(member -> member.getCollectivities().stream()
-                        .anyMatch(collectivity -> collectivities.contains(collectivity) && !JUNIOR.equals(member.getOccupation())))
+        var memberRefereesInsideActualCollectivityNotJuniorCount = referees.stream().filter(member ->
+                        member.getCollectivities() != null
+                        && member.getCollectivities().stream()
+                                .anyMatch(collectivity -> collectivities.contains(collectivity) && !JUNIOR.equals(member.getOccupation())))
                 .count();
         return memberRefereesInsideActualCollectivityNotJuniorCount >= 2;
     }
 
     public List<Collectivity> addCollectivity(Collectivity collectivity) {
+        if (collectivities == null) {
+            collectivities = new ArrayList<>();
+        }
         collectivities.add(collectivity);
-        collectivity.getMembers().add(this);
         return collectivities;
     }
 

@@ -23,6 +23,8 @@ public class MemberMapper {
                     .occupation(resultSet.getString("occupation") == null ? null : MemberOccupation.valueOf(resultSet.getString("occupation")))
                     .registrationFeePaid(resultSet.getBoolean("registration_fee_paid"))
                     .membershipDuesPaid(resultSet.getBoolean("membership_dues_paid"))
+                    .address(resultSet.getString("address"))
+                    .profession(resultSet.getString("profession"))
                     .build();
         } catch (SQLException e) {
             throw new RuntimeException(e);

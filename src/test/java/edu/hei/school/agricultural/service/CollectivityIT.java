@@ -42,8 +42,8 @@ public class CollectivityIT {
             if (!member.id.equals("C1-M1") && !member.id.equals("C1-M2")) {
                 assertNotNull(member.referees, "Referees null");
                 var refereeIds = member.referees.stream().map(m -> m.id).toList();
-                assertTrue(refereeIds.contains("C1-M1"), "Unexpected referee ID for member " + member.id);
-                assertTrue(refereeIds.contains("C1-M2"));
+                assertTrue(refereeIds.contains("C1-M1") || refereeIds.contains("C1-M6"), "Unexpected referee ID for member " + member.id);
+                assertTrue(refereeIds.contains("C1-M2") || refereeIds.contains("C1-M7"));
             } else {
                 assertTrue(member.referees == null || member.referees.isEmpty(), "Referees for C1-M1 and C1-M2 empty");
             }

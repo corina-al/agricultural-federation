@@ -4,6 +4,7 @@ create table if not exists "collectivity"
     name              varchar,
     number            integer,
     location          varchar,
+    specialization    varchar,
     president_id      varchar references "member" (id),
     vice_president_id varchar references "member" (id),
     treasurer_id      varchar references "member" (id),

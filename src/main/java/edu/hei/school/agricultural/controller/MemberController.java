@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -24,7 +25,7 @@ public class MemberController {
     private final MemberDtoMapper memberDtoMapper;
 
     @PostMapping("/members")
-    public ResponseEntity<?> createMembers(List<CreateMember> createMemberDtos) {
+    public ResponseEntity<?> createMembers(@RequestBody List<CreateMember> createMemberDtos) {
         try {
             List<Member> convertedCreateMembers = createMemberDtos.stream()
                     .map(memberDtoMapper::mapToEntity)

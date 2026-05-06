@@ -20,6 +20,12 @@ public class MemberService {
             if (!member.refereesAreEligible()) {
                 throw new BadRequestException("Member.id=" + member.getId() + " member referees are not eligible");
             }
+            if (!member.getMembershipDuesPaid()) {
+                throw new BadRequestException("Member.id=" + member.getId() + " membership dues not paid");
+            }
+            if (!member.getRegistrationFeePaid()) {
+                throw new BadRequestException("Member.id=" + member.getId() + " membership fees not paid");
+            }
             member.setId(randomUUID().toString());
         }
         return memberRepository.saveAll(memberList);
