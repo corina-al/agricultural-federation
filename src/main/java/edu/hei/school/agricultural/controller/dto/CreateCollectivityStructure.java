@@ -1,9 +1,19 @@
 package edu.hei.school.agricultural.controller.dto;
 
-public class CreateCollectivityStructure {
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
-    public String president;
-    public String vicePresident;
-    public String treasurer;
-    public String secretary;
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
+public class CreateCollectivityStructure {
+    private String president;
+    private String vicePresident;
+    private String treasurer;
+    private String secretary;
 }

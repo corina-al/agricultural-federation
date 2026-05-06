@@ -1,29 +1,23 @@
 package edu.hei.school.agricultural.controller.dto;
 
-import edu.hei.school.agricultural.api.model.Member;
-import edu.hei.school.agricultural.api.model.PaymentMode;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
 public class CollectivityTransaction {
-
-    public String id;
-    public LocalDate creationDate;
-    public BigDecimal amount;
-    public PaymentMode paymentMode;
-    //public FinancialAccount accountCredited;
-    public Member memberDebited;
-
-    @Override
-    public String toString() {
-        return "CollectivityTransaction{" +
-                "id='" + id + '\'' +
-                ", creationDate=" + creationDate +
-                ", amount=" + amount +
-                ", paymentMode=" + paymentMode +
-                //", accountCredited=" + accountCredited +
-                ", memberDebited=" + memberDebited +
-                '}';
-    }
+    private String id;
+    private LocalDate creationDate;
+    private Double amount;
+    private PaymentMode paymentMode;
+    private FinancialAccount accountCredited;
+    private Member memberDebited;
 }

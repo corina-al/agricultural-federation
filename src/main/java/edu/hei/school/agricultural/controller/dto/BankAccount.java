@@ -1,30 +1,23 @@
 package edu.hei.school.agricultural.controller.dto;
 
-import java.math.BigDecimal;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
 public class BankAccount implements FinancialAccount {
-
-    public String id;
-    public String holderName;
-    public Bank bankName;
-    public Integer bankCode;
-    public Integer bankBranchCode;
-    public Integer bankAccountNumber;
-    public Integer bankAccountKey;
-    public BigDecimal amount;
-    public String type = "BANK";
-
-    @Override
-    public String toString() {
-        return "BankAccount{" +
-                "id='" + id + '\'' +
-                ", holderName='" + holderName + '\'' +
-                ", bankName=" + bankName +
-                ", bankCode=" + bankCode +
-                ", bankBranchCode=" + bankBranchCode +
-                ", bankAccountNumber=" + bankAccountNumber +
-                ", bankAccountKey=" + bankAccountKey +
-                ", amount=" + amount +
-                '}';
-    }
+    private String id;
+    private String holderName;
+    private Bank bankName;
+    private Integer bankCode;
+    private Integer bankBranchCode;
+    private Integer bankAccountNumber;
+    private Integer bankAccountKey;
+    private Double amount;
 }

@@ -1,21 +1,19 @@
 package edu.hei.school.agricultural.controller.dto;
 
-import edu.hei.school.agricultural.api.model.Member;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
 public class CollectivityStructure {
-
-    public Member president;
-    public Member vicePresident;
-    public Member treasurer;
-    public Member secretary;
-
-    @Override
-    public String toString() {
-        return "CollectivityStructure{" +
-                "president=" + president +
-                ", vicePresident=" + vicePresident +
-                ", treasurer=" + treasurer +
-                ", secretary=" + secretary +
-                '}';
-    }
+    private Member president;
+    private Member vicePresident;
+    private Member treasurer;
+    private Member secretary;
 }

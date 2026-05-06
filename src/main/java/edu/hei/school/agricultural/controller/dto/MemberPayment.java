@@ -1,23 +1,22 @@
 package edu.hei.school.agricultural.controller.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDate;
 
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
 public class MemberPayment {
-
-    public String id;
-    public Integer amount;
-    public PaymentMode paymentMode;
-    //public FinancialAccount accountCredited;
-    public LocalDate creationDate;
-
-    @Override
-    public String toString() {
-        return "MemberPayment{" +
-                "id='" + id + '\'' +
-                ", amount=" + amount +
-                ", paymentMode=" + paymentMode +
-                //", accountCredited=" + accountCredited +
-                ", creationDate=" + creationDate +
-                '}';
-    }
+    private String id;
+    private Integer amount;
+    private PaymentMode paymentMode;
+    private FinancialAccount accountCredited;
+    private LocalDate creationDate;
 }

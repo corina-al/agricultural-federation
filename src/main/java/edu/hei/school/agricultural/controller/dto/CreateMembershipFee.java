@@ -1,12 +1,21 @@
 package edu.hei.school.agricultural.controller.dto;
 
-import java.math.BigDecimal;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
+
 import java.time.LocalDate;
 
+@Data
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
 public class CreateMembershipFee {
-
-    public LocalDate eligibleFrom;
-    public Frequency frequency;
-    public BigDecimal amount;
-    public String label;
+    private LocalDate eligibleFrom;
+    private Frequency frequency;
+    private Double amount;
+    private String label;
 }

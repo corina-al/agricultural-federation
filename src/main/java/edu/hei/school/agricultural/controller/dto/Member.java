@@ -13,9 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class Collectivity extends CollectivityInformation {
+public class Member extends MemberInformation {
     private String id;
-    private String location;
-    private CollectivityStructure structure;
-    private List<Member> members;
+    private List<Member> referees;
 }
