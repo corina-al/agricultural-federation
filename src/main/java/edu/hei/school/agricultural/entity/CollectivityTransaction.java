@@ -1,4 +1,4 @@
-package edu.hei.school.agricultural.controller.dto;
+package edu.hei.school.agricultural.entity;
 
 import lombok.*;
 
@@ -12,9 +12,10 @@ import java.time.LocalDate;
 @Setter
 public class CollectivityTransaction {
     private String id;
-    private LocalDate creationDate;
+    private String collectivityId;
+    private Member memberDebited;
+    private FinancialAccount accountCredited;
     private BigDecimal amount;
     private PaymentMode paymentMode;
-    private Object accountCredited;
-    private Member memberDebited;
+    private LocalDate creationDate;
 }

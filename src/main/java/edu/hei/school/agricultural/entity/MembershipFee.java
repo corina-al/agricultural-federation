@@ -1,4 +1,4 @@
-package edu.hei.school.agricultural.controller.dto;
+package edu.hei.school.agricultural.entity;
 
 import lombok.*;
 
@@ -12,9 +12,10 @@ import java.time.LocalDate;
 @Setter
 public class MembershipFee {
     private String id;
+    private String collectivityId;
+    private String label;
     private LocalDate eligibleFrom;
     private Frequency frequency;
     private BigDecimal amount;
-    private String label;
     private ActivityStatus status;
 }

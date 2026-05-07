@@ -1,22 +1,19 @@
 package edu.hei.school.agricultural.controller.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
+@Builder
+@Getter
+@Setter
 public class MemberPayment {
     private String id;
-    private Integer amount;
+    private BigDecimal amount;
     private PaymentMode paymentMode;
-    private FinancialAccount accountCredited;
+    private Object accountCredited;
     private LocalDate creationDate;
 }

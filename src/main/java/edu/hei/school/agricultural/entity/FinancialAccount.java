@@ -1,6 +1,7 @@
-package edu.hei.school.agricultural.controller.dto;
+package edu.hei.school.agricultural.entity;
 
 import lombok.*;
+
 import java.math.BigDecimal;
 
 @NoArgsConstructor
@@ -10,11 +11,12 @@ import java.math.BigDecimal;
 @Setter
 public class FinancialAccount {
     private String id;
-    private String accountType;
+    private String collectivityId;
+    private FinancialAccountType accountType;
     private String holderName;
-    private String mobileBankingService;
+    private MobileBankingService mobileBankingService;
     private String mobileNumber;
-    private String bankName;
+    private Bank bankName;
     private Integer bankCode;
     private Integer bankBranchCode;
     private Long bankAccountNumber;
